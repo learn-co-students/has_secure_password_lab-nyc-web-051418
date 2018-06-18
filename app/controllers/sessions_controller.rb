@@ -15,7 +15,7 @@ class SessionsController < ApplicationController
   #   #return head(:forbidden) unless user_authentication_result
   # end
 
-
+####
 
   end
 
