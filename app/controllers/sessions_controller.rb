@@ -10,6 +10,15 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(name: user_params[:name])
 
+    # if @user && @user.authenticate(user_params[:password])
+    #   helpers.log_in_user!(@user.id)
+    #   redirect_to @user
+    # else
+    #   @user = User.new(username: user_params[:username])
+    #   @errors = ["Those credentials don't match anything we have"]
+    #   render :new
+    # end
+
     return head(:forbidden) unless @user.authenticate(user_params[:password])
     session[:user_id] = @user.id
 
@@ -39,15 +48,3 @@ class SessionsController < ApplicationController
   end
 
 end
-
-
-
-
-    # if @user && @user.authenticate(user_params[:password])
-    #   helpers.log_in_user!(@user.id)
-    #   redirect_to @user
-    # else
-    #   @user = User.new(username: user_params[:username])
-    #   @errors = ["Those credentials don't match anything we have"]
-    #   render :new
-    # end
