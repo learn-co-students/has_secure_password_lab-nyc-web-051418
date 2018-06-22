@@ -1,0 +1,9 @@
+<%= form_for @user do |f| %>
+
+  Username: <%= text_field_tag :name %>
+  Password: <%= password_field_tag :password %>
+  <!-- Password Confirmation: <%# f.password_field :password_confirmation %> -->
+
+  <%= submit_tag %>
+
+<% end %>
